@@ -6,7 +6,8 @@ class ImportarService < ApplicationService
 
   def call
     nome_arquivo = self.salvar_em_disco
-    self.salvar_no_banco nome_arquivo
+    response = self.salvar_no_banco nome_arquivo
+
   end
 
   def salvar_em_disco
@@ -21,20 +22,31 @@ class ImportarService < ApplicationService
   end
 
   def salvar_no_banco arquivo
+
+    response = {
+      total: 0,
+      receita: 0
+    }
+
     open("#{Rails.root}/public/uploads/#{arquivo}") do |file|
       file.each_with_index do |linha, i|
         next if i == 0
         coluna = linha.split("\t")
         # Comprador	Descrição	Preço Unitário	Quantidade	Endereço	Fornecedor
-        Pessoa.create({
-                        comprador: coluna[0],
-                        descricao: coluna[1],
-                        preco: coluna[2].to_f,
-                        quantidade: coluna[3].to_f,
-                        endereco: coluna[4],
-                        fornecedor: coluna[5]
-                      })
+        pessoa = Pessoa.new
+         pessoa.comprador = coluna[0]
+         pessoa.descricao = coluna[1]
+         pessoa.preco = coluna[2].to_f
+         pessoa.quantidade = coluna[3].to_f
+         pessoa.endereco = coluna[4]
+         pessoa.fornecedor = coluna[5]
+         pessoa.save
+         
+        response[:total] += 1
+        response[:receita] += (pessoa.quantidade * pessoa.preco)
       end
     end
+    
+    response
   end
 end

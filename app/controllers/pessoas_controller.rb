@@ -6,13 +6,12 @@ class PessoasController < ApplicationController
 
   def processar
     if params[:arquivo].present?
-      ImportarService.call params[:arquivo]
+      @response = ImportarService.call params[:arquivo]
     else
-      # TODO lançar exception
+      # TODO throw exception
     end
 
-    respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Operação realizada com sucesso' }
-    end
+    render "resumo"
+    
   end
 end
