@@ -7,7 +7,6 @@ class CreatePessoas < ActiveRecord::Migration[5.0]
       t.decimal :quantidade
       t.string :endereco
       t.string :fornecedor
-      t.timestamps
     end
   end
 end

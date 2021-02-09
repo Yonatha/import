@@ -13,14 +13,12 @@
 ActiveRecord::Schema.define(version: 20210209140227) do
 
   create_table "pessoas", force: :cascade do |t|
-    t.string   "comprador"
-    t.string   "descricao"
-    t.decimal  "preco"
-    t.decimal  "quantidade"
-    t.string   "endereco"
-    t.string   "fornecedor"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string  "comprador"
+    t.string  "descricao"
+    t.decimal "preco"
+    t.decimal "quantidade"
+    t.string  "endereco"
+    t.string  "fornecedor"
   end
 
 end
