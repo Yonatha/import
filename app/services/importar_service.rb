@@ -5,9 +5,12 @@ class ImportarService < ApplicationService
   end
 
   def call
+    unless self.validateExtensiopn
+      return false
+    end
+
     nome_arquivo = self.salvar_em_disco
     response = self.salvar_no_banco nome_arquivo
-
   end
 
   def salvar_em_disco
@@ -41,12 +44,17 @@ class ImportarService < ApplicationService
          pessoa.endereco = coluna[4]
          pessoa.fornecedor = coluna[5]
          pessoa.save
-         
         response[:total] += 1
         response[:receita] += (pessoa.quantidade * pessoa.preco)
       end
     end
-    
     response
+  end
+
+  def validateExtensiopn
+    allow_extensions = ['.txt']
+    if allow_extensions.include? File.extname(@arquivo.original_filename)
+      true
+    end
   end
 end

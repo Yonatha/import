@@ -1,3 +1,8 @@
+<h1>Importar</h1>
+<%= flash[:notice] %>
+<br>
+<br>
+
 <%= form_tag '/pessoas/processar', multipart: true do %>
   <%= file_field_tag 'arquivo' %>
   <br>

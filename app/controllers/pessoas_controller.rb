@@ -1,17 +1,18 @@
 class PessoasController < ApplicationController
 
-  def importar
-
+  def index
+    render :importar
   end
 
   def processar
-    if params[:arquivo].present?
-      @response = ImportarService.call params[:arquivo]
+    @response = ImportarService.call params[:arquivo]
+    unless @response
+      flash[:notice] = 'Extensão inválida'
+      render :importar
     else
-      # TODO throw exception
+      flash[:notice] = 'Dados importados com sucesso'
+      @pessoas = Pessoa.all.paginate(page: params[:page], per_page: 2)
+      render :resumo
     end
-
-    render "resumo"
-    
   end
 end

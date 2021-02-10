@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :pessoas do
     collection do
       post :processar
+      get :processar
     end
   end
 end
