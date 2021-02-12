@@ -12,7 +12,8 @@ class PessoasController < ApplicationController
     else
       flash[:notice] = 'Dados importados com sucesso'
       @pessoas = Pessoa.where(:lote => @response[:lote])
-                       .paginate(page: params[:page], per_page: 5)
+                       .order('comprador ASC')
+
       render :show
     end
   end

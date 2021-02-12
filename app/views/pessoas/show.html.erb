@@ -17,7 +17,7 @@
       </li>
       <li class="list-group-item d-flex justify-content-between align-items-center">
         Receita bruta total
-        <span class="badge badge-primary badge-pill">R$ <%= @response[:receita] %></span>
+        <span class="badge badge-primary badge-pill"><%= number_to_currency(@response[:receita], :unit => "R$ ") %></span>
       </li>
     </ul>
 
@@ -25,7 +25,7 @@
       <thead>
       <th>Comprador</th>
       <th>Descrição</th>
-      <th>Preço R$</th>
+      <th>Preço</th>
       <th>Quantidade</th>
       <th>Endereço</th>
       <th>Fornecedor</th>
@@ -35,7 +35,7 @@
           <td><%= pessoa.comprador %></td>
           <td><%= pessoa.descricao %></td>
           <td class="text-align-right">
-            <span class="badge badge-light"><%= pessoa.preco %></span>
+            <span class="badge badge-light"><%= number_to_currency(pessoa.preco, :unit => "R$ ") %></span>
           </td>
           <td class="text-align-center">
             <span class="badge badge-info"><%= pessoa.quantidade %></span>
@@ -45,8 +45,5 @@
         </tr>
       <% end %>
     </table>
-
-    <%= will_paginate @pessoas %>
-
   </div>
 </div>
