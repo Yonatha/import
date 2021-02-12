@@ -1,0 +1,7 @@
+pessoa:
+  comprador: João Silva
+  descricao: R$10 off R$20 of food
+  preco: 19.99
+  quantidade: 3
+  endereco: Rua Exemplo, 101
+  fornecedor: Store Magic Food

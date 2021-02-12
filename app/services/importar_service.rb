@@ -36,7 +36,6 @@ class ImportarService < ApplicationService
       file.each_with_index do |linha, i|
         next if i == 0
         coluna = linha.split("\t")
-        # Comprador	Descrição	Preço Unitário	Quantidade	Endereço	Fornecedor
         pessoa = Pessoa.new
          pessoa.lote = response[:lote]
          pessoa.comprador = coluna[0]
