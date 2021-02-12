@@ -1,5 +1,14 @@
 # Ferramenta de importação .txt
 
+Raliza importação de arquivo de texto (.txt) separados por TAB (\t)
+
+
+> Tela do formulário de importação do arquivo
+![alt text](tela1.png "Formulário de importação do arquivo")
+
+> Tela de resumo dos arquivos importados
+![alt text](tela2.png "Formulário de importação do arquivo")
+
 ## Requisitos
 
 * Ruby 2.2+
