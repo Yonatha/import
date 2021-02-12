@@ -12,7 +12,7 @@ class PessoasController < ApplicationController
     else
       flash[:notice] = 'Dados importados com sucesso'
       @pessoas = Pessoa.where(:lote => @response[:lote])
-                       .order('comprador ASC')
+                       .order('preco DESC')
 
       render :show
     end

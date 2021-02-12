@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20210209140227) do
     t.string  "lote"
     t.string  "comprador"
     t.string  "descricao"
-    t.decimal "preco"
+    t.decimal "preco",      precision: 8, scale: 2
     t.decimal "quantidade"
     t.string  "endereco"
     t.string  "fornecedor"
