@@ -1,0 +1,21 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+
+
+.btn-novo {
+  position: absolute;
+  right: 7px;
+  top: 5px;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.text-align-center  {
+  text-align: center;
+}

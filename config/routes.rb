@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to => "pessoas#importar"
+  root :to => "pessoas#index"
 
   resources :pessoas
 end
