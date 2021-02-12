@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 20210209140227) do
 
   create_table "pessoas", force: :cascade do |t|
+    t.string  "lote"
     t.string  "comprador"
     t.string  "descricao"
     t.decimal "preco"

@@ -28,7 +28,8 @@ class ImportarService < ApplicationService
 
     response = {
       total: 0,
-      receita: 0
+      receita: 0,
+      lote: Time.now.to_i
     }
 
     open("#{Rails.root}/public/uploads/#{arquivo}") do |file|
@@ -37,6 +38,7 @@ class ImportarService < ApplicationService
         coluna = linha.split("\t")
         # Comprador	Descrição	Preço Unitário	Quantidade	Endereço	Fornecedor
         pessoa = Pessoa.new
+         pessoa.lote = response[:lote]
          pessoa.comprador = coluna[0]
          pessoa.descricao = coluna[1]
          pessoa.preco = coluna[2].to_f
