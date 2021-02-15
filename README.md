@@ -5,10 +5,10 @@ Raliza importação de arquivo de texto (.txt) separados por TAB (\t).
 
 ## Preview
 * Tela do formulário de importação do arquivo
-![alt text](myapp/tela1.png "Formulário de importação do arquivo")
+![alt text](tela1.png "Formulário de importação do arquivo")
 
 * Tela de resumo dos arquivos importados
-![alt text](myapp/tela2.png "Formulário de importação do arquivo")
+![alt text](tela2.png "Formulário de importação do arquivo")
 
 ## Executando o Projeto
 
