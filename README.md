@@ -46,6 +46,12 @@ http://localhost:3000
 
 ## Teste
 
+Antes de executar o teste certifique-se de rodar os migrations no environment de test   
+```
+rails db:migrate RAILS_ENV=test
+```
+
+Execute os testes com o comando:
 ```
 rake
 ```
