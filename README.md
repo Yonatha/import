@@ -1,30 +1,42 @@
 # Ferramenta de importação .txt
 
-Raliza importação de arquivo de texto (.txt) separados por TAB (\t)
+Raliza importação de arquivo de texto (.txt) separados por TAB (\t).
 
 
-> Tela do formulário de importação do arquivo
-![alt text](tela1.png "Formulário de importação do arquivo")
+## Preview
+* Tela do formulário de importação do arquivo
+![alt text](myapp/tela1.png "Formulário de importação do arquivo")
 
-> Tela de resumo dos arquivos importados
-![alt text](tela2.png "Formulário de importação do arquivo")
+* Tela de resumo dos arquivos importados
+![alt text](myapp/tela2.png "Formulário de importação do arquivo")
 
-## Requisitos
+## Executando o Projeto
+
+1 - Efetue o clone do projeto
+
+
+### Execução com docker
+> Observação: Caso tenha o docker-compose configurado em sua maquina basta executar
+
+```
+git clone https://github.com/Yonatha/import.git
+
+cd import/
+docker-compose up -d
+docker exec myApp rake db:setup
+```
+
+### Execução sem docker
+
+> Requisitos
 
 * Ruby 2.2+
 * Rails 5.x
 * SQLite
 
-## Instalação
-
-1 - Efetue o clone do projeto
-```
-git clone https://github.com/Yonatha/import.git
-```
-
 2 - Acesse o diretório clonado
 ```
-cd import
+cd import/myapp
 ```
 
 3 - Execute a task de instalação do sistema
@@ -56,8 +68,13 @@ Execute os testes com o comando:
 rake
 ```
 
+ou via docker
+```
+docker exec myApp rake RAILS_ENV=test
+```
+
 ## TODO
 * Implementar a mecânica de detecção de linhas inválidas e gerar um arquivo de saída contendo os registros que não podem ser importados, afim de que sejam corrigidos e reimportados na ferramenta
 * Adicionar o sidekiq para realizar o processamento em um worker 
-* Criar o docker-compose para facilitar a execução do projeto sem a necessidade do usuário ter as versões do ruby e rails instaladas no hospedeiro, mas com uma resalva do requisito de ter apenas o docker instalado
 * Adicionar busca na view do lote de registros improtado
+* Permitir arquivos separados por ponto e virgula (;)

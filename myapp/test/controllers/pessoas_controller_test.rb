@@ -1,12 +1,12 @@
 require 'test_helper'
 
 class PessoasControllerTest < ActionController::TestCase
-    test "o formulário de importação deve carregar" do
+    test "o formulario de importacao deve carregar" do
         get :index
         assert_response :success
     end
 
-    test "Fazer upload de arquivo válido" do
+    test "Fazer upload de arquivo valido" do
         patch = '/files/dados_validos.txt'
         post :create, params: {
           :arquivo => fixture_file_upload(patch, 'text/txt')
