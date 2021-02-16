@@ -21,4 +21,5 @@ RUN gem install bundler
 RUN bundle install
 
 EXPOSE 3000
+RUN echo "Executando servidor em http://localhost:3000"
 CMD ["rails", "server", "-b", "0.0.0.0"]
