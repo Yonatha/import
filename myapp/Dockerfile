@@ -1,4 +1,4 @@
-FROM ruby:2.7.2-alpine
+FROM ruby:2.3-alpine
 
 ENV APP_ROOT /workspace
 # postgresql-dev mysql-dev
